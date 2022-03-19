@@ -1,0 +1,14 @@
+html 
+    head 
+        title='pug de productos'
+    body 
+        h1 formulario
+        form(action="/productos" method="POST")
+            label(for="producto") Producto:
+            input(type="text" name="producto")
+            label(for="precio") Precio:
+            input(type="number" name="precio")
+            label(for="thumbnail") Url:
+            input(type="text" name="thumbnail")
+            button(type="submit") Enviar
+    a(href="/productos") Ver productos 

@@ -1,0 +1,15 @@
+<h2>Lista de productos</h2>
+<ul>
+    <% if (listExist){ %>
+        <% data.forEach(function(item){ %>
+            <li> 
+                nombre: <%= item.producto %>
+                precio: <%= item.precio %>
+                url: <%= item.thumbnail %>
+            </li>
+        <% })%>
+        <% } else { %>
+            <h2>no hay datos</h2>
+            <a href="/">Cargar productos</a>
+    <% } %>
+</ul>

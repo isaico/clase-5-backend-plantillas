@@ -1,0 +1,17 @@
+html 
+    head 
+        title='pug de productos'
+    body 
+        h1 lista de productos
+        ul
+            each item in data 
+                ol           
+                    li= item.producto 
+                    li= item.precio 
+                    li= item.thumbnail
+                    br
+            else 
+                li no hay datos
+              
+                 //- li=producto:item.producto precio:item.precio url:item.thumbnail
+        a(href="/") Cargar productos         

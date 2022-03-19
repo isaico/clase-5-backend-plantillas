@@ -1,0 +1,11 @@
+<h2>Lista de productos</h2>
+<form action="/productos" method="POST">
+    <label for="producto">Nombre:</label>
+    <input type="text" name="producto" placeholder="producto">
+    <label for="precio">Precio:</label>
+    <input type="number" min="1" name="precio" placeholder="$111">
+    <label for="thumbnail">Url:</label>
+    <input type="text" name="thumbnail" placeholder="https://someurl.com">
+    <button type="submit">Enviar</button>
+</form>
+<a href="/productos">Ver los productos</a>

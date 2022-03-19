@@ -14,13 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 /* -------------------------------------------------------------------------- */
 /*                                    data                                    */
 /* -------------------------------------------------------------------------- */
-const data = [
-  {
-    producto: 'producto1',
-    precio: 123,
-    thumbnail: 'url://...',
-  },
-];
+const data = [];
+let listExist = false;
+
 /* -------------------------------------------------------------------------- */
 /*                                 HBS config                                 */
 /* -------------------------------------------------------------------------- */
@@ -36,15 +32,28 @@ app.engine(
     defaulLayout: 'index.hbs',
     layoutsDir: __dirname + '/views/layout',
     partialsDir: __dirname + '/views/partials/',
-  }),
+  })
 );
+/* -------------------------------------------------------------------------- */
+/*                                   RENDERS                                  */
+/* -------------------------------------------------------------------------- */
 app.get('/', (req, res) => {
   res.render('main', { layout: 'index', data });
 });
+app.get('/productos', (req, res) => {
+  res.render('productos-main', { layout: 'index', data, listExist });
+});
 /* ----------------------------------------------------------------------- */
-// app.get('/',(req,res)=>{
-//   res.send("Hola")
-// })
+/* -------------------------------------------------------------------------- */
+/*                                    POST                                    */
+/* -------------------------------------------------------------------------- */
+app.post('/productos', (req, res) => {
+  const { body } = req;
+  data.push(body);
+  listExist = true;
+});
+
+/* ------------------------------------ ----------------------------------- */
 const server = app.listen(PORT, () => {
   console.log(`server is runing at http://localhost:${PORT}`);
 });
